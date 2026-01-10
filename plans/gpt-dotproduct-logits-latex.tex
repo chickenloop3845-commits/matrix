@@ -1,0 +1,260 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{dot-product-logits-in-gpt-the-mathematically-precise-sentence}{%
+\section{Dot-product logits in GPT: the mathematically precise
+sentence}\label{dot-product-logits-in-gpt-the-mathematically-precise-sentence}}
+
+\hypertarget{export-to-pdf-vs-code}{%
+\subsection{Export to PDF (VS Code)}\label{export-to-pdf-vs-code}}
+
+\begin{itemize}
+\tightlist
+\item
+  If you have a Markdown-to-PDF extension installed (e.g., Markdown
+  PDF), use its export command on this file.
+\item
+  Otherwise: open the preview, then use your system print dialog and
+  select \textbf{Print to PDF}.
+\end{itemize}
+
+\hypertarget{clean-restatement}{%
+\subsection{Clean restatement}\label{clean-restatement}}
+
+\textbf{Yes. Exactly. That sentence is mathematically precise.}
+
+I'll restate it cleanly, then justify it from first principles.
+
+\pagebreak
+
+\hypertarget{core-equation-one-line}{%
+\subsection{Core equation (one line)}\label{core-equation-one-line}}
+
+For token (i):
+
+\[
+\text{logit}_i = h^\top E_i
+\]
+
+Where:
+
+\begin{itemize}
+\tightlist
+\item
+  (h) = compressed context + analysis (final hidden vector)
+\item
+  (E\_i) = representation (embedding) of token (i)
+\end{itemize}
+
+This is a \textbf{dot product similarity}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{why-this-works-science}{%
+\subsection{Why this works (science)}\label{why-this-works-science}}
+
+\hypertarget{what-h-really-is}{%
+\subsubsection{1) What (h) really is}\label{what-h-really-is}}
+
+(h) is \textbf{not} a summary sentence.
+
+It is a \textbf{direction in embedding space} that encodes:
+
+\begin{itemize}
+\tightlist
+\item
+  semantics
+\item
+  syntax
+\item
+  positional constraints
+\item
+  long-range dependencies
+\end{itemize}
+
+It answers:
+
+\begin{quote}
+What kind of token should come next?
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{what-e_i-really-is}{%
+\subsubsection{2) What (E\_i) really is}\label{what-e_i-really-is}}
+
+Each token embedding (E\_i) is also a direction, learned so that:
+
+\begin{itemize}
+\tightlist
+\item
+  tokens used in similar contexts point similarly
+\item
+  grammar and meaning are embedded geometrically
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{dot-product-meaning}{%
+\subsubsection{3) Dot product meaning}\label{dot-product-meaning}}
+
+Dot product measures:
+
+\begin{itemize}
+\tightlist
+\item
+  alignment
+\item
+  agreement
+\item
+  compatibility
+\end{itemize}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Dot product value & Interpretation\tabularnewline
+\midrule
+\endhead
+Large positive & Token fits context\tabularnewline
+Near zero & Token is irrelevant\tabularnewline
+Negative & Token contradicts context\tabularnewline
+\bottomrule
+\end{longtable}
+
+Then \textbf{softmax} turns these compatibilities into probabilities.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{why-compressed-is-the-right-word}{%
+\subsection{Why ``compressed'' is the right
+word}\label{why-compressed-is-the-right-word}}
+
+The entire history:
+
+\[
+(x_1, x_2, \dots, x_T)
+\]
+
+is mapped to:
+
+\[
+h \in \mathbb{R}^{500}
+\]
+
+This mapping is:
+
+\begin{itemize}
+\tightlist
+\item
+  lossy
+\item
+  task-oriented
+\item
+  predictive (not reconstructive)
+\end{itemize}
+
+Only information useful for predicting the next token survives.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{important-nuance}{%
+\subsection{Important nuance}\label{important-nuance}}
+
+This is \textbf{not} cosine similarity:
+
+\begin{itemize}
+\tightlist
+\item
+  norms matter
+\item
+  magnitude encodes confidence-like information
+\end{itemize}
+
+Temperature (and other sampling controls) later rescales this.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{one-line-summary}{%
+\subsection{One-line summary}\label{one-line-summary}}
+
+GPT predicts the next token by choosing the token whose embedding has
+the highest dot-product alignment with the compressed, causally
+accumulated context vector.
+
+That's the model in one sentence.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{optional-next-topics}{%
+\subsection{Optional next topics}\label{optional-next-topics}}
+
+\begin{itemize}
+\tightlist
+\item
+  why this equals nearest-neighbor under constraints
+\item
+  how attention learns to shape (h)
+\item
+  why magnitude is not literally confidence, but often correlates
+\item
+  why this beats symbolic rules
+\end{itemize}
+
+\end{document}
