@@ -17,5 +17,4 @@ This file contains rules intended for LLM/code-agent sessions. If you are an ass
 
 3) **After pushing**
 
-- If any PDFs were added/updated, provide the **direct GitHub link(s)** to those PDF files (e.g., `https://github.com/<org>/<repo>/blob/<branch>/<path>.pdf`).
-
+- If any PDFs or Markdown files were added/updated, provide the **direct GitHub link(s)** to those files (e.g., `https://github.com/<org>/<repo>/blob/<branch>/<path>.pdf` or `https://github.com/<org>/<repo>/blob/<branch>/<path>.md`).
